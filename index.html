@@ -6,21 +6,18 @@
 </head>
 <body>
 
-<img src="demo_image.jpg.jpeg" style="width:100%;">
-<audio id="myAudio">
-  <source src="demo_audio.mp3.mp3" type="audio/mpeg">
-</audio>
+<div id="container" style="text-align: center; cursor: pointer;">
+  <img src="demo_image.jpg.jpeg" style="max-width:100%; height:auto;">
+  <p>แตะที่หน้าจอเพื่อเล่นเสียง</p>
+</div>
+
+<audio id="myAudio" src="demo_audio.mp3.mp3" preload="auto"></audio>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('container').addEventListener('click', function() {
     var audio = document.getElementById('myAudio');
-    audio.play().then(() => {
-      // Autoplay started successfully
-    }).catch(error => {
-      // Autoplay was prevented.
-      // Show a message to the user that they need to click to play.
-      console.log('Autoplay was prevented by the browser.');
-    });
+    audio.play();
+    this.style.display = 'none'; // Optional: hide the entire container after playing
   });
 </script>
 
