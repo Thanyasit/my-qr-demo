@@ -2,14 +2,27 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo QR Code</title>
+<title>QR Code Audio</title>
 </head>
 <body>
 
-<img src="demo_image.jpg.jpeg" alt="Demo Image" style="width:100%;">
-<audio controls autoplay>
+<img src="demo_image.jpg.jpeg" style="width:100%;">
+<audio id="myAudio">
   <source src="demo_audio.mp3.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('myAudio');
+    audio.play().then(() => {
+      // Autoplay started successfully
+    }).catch(error => {
+      // Autoplay was prevented.
+      // Show a message to the user that they need to click to play.
+      console.log('Autoplay was prevented by the browser.');
+    });
+  });
+</script>
 
 </body>
 </html>
